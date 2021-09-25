@@ -1,0 +1,23 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      String input = sc.next();
+      char[] letter = input.toCharArray();
+      char pointer = 'a';
+      int countRotation = 0;
+      
+      for (int i = 0; i < letter.length; i++) {
+        if (Math.abs(letter[i] - pointer) <= 13) { 
+          countRotation += Math.abs(letter[i] - pointer);
+        }
+        else {
+          countRotation += 26 % (Math.abs((letter[i] - pointer)));
+        }
+        pointer = letter[i];
+      }
+      System.out.println(countRotation);
+  }
+}
