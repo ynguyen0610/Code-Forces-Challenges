@@ -1,0 +1,33 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String S = sc.nextLine();
+    String T = sc.nextLine();
+
+    String X = "";
+
+    for (int i = S.length() - 1; i >= 0; i--) {
+      char charS = S.charAt(i);
+      if (charS == 'z') {
+        X += 'a';
+      }
+      else {
+        break;
+      }
+    }
+
+    int pointer = S.length() - X.length() - 1;
+
+    String result = S.substring(0, pointer) + (char)(S.charAt(pointer) + 1) + X;
+
+    if (result.equals(T)) {
+      System.out.println("No such string");
+    } 
+    else {
+      System.out.println(result);
+    }
+  }
+}
