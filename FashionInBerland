@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int countOne = 0;
+        int countZero = 0;
+        int numButtons = sc.nextInt();
+
+        int[] fastenedButtons = new int[numButtons];
+        for (int i = 0; i < numButtons; i++) {
+          fastenedButtons[i] = sc.nextInt();
+          if (fastenedButtons[i] == 1) countOne++;
+          if (fastenedButtons[i] == 0) countZero++;
+        }
+        String result = "NO";
+        if (numButtons == 1 && countOne == 1) {
+          result = "YES";
+        }
+        if (numButtons >1 && countZero == 1) { 
+          result = "YES";
+        }
+          System.out.println(result);
+    }    
+}
