@@ -1,0 +1,50 @@
+/*
+Summary:
+- N segments
+- Start: L, End: R
+- One of the defined segments covers all others
+- If it exists: print its number - the Nth segment that covers all
+- If it doesn't: print -1
+
+Idea:
+- Need a scanner to scan input lines
+- 1st line: 1 int 
+- int R
+- int L
+- a for loop to create the next few lines
+- each line can only have 2 numbers: R, L
+after traversing the loop, compare the 
+Input:
+- 1st line: N - number of segments
+- next N lines: description of each of the N segments
+
+Output:
+
+*/
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    int[] L = new int[N];
+    int[] R = new int[N];
+    long min = 9999999999L;
+    int max = 0;
+    int output = -1;
+    for (int i = 0; i < N; i++) {
+      L[i] = sc.nextInt();
+      R[i] = sc.nextInt();
+      min = Math.min(min, L[i]);
+      max = Math.max(max, R[i]);
+    }
+    for (int i = 0; i < N; i++) {
+      if (L[i] == min && R[i] == max) {
+        output = i + 1;
+      }
+    }
+    System.out.println(output);
+  }
+}
