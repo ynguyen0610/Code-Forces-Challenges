@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int w = sc.nextInt();
+    double output = -1;
+    double[] cups = new double[n*2];
+    double forGirls = 0;
+    double forBoys = 0;
+    for (int i = 0; i < n * 2; i++) {
+      cups[i] = sc.nextInt();
+    } 
+    Arrays.sort(cups);
+    if (cups[0] > cups[n]/2) {
+      output = cups[n] / 2 * 3 * n;
+    }
+    else {
+      output = cups[0] * 3 * n;
+    }
+    if (output > w) output = w;
+    System.out.println(output);
+  }
+}
